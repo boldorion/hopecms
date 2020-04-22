@@ -5,7 +5,7 @@
   "private": true,
   "license": "BSD",
   "author": "BoldOrion",
-  "repository": "",
+  "repository": "boldorion/hopecms",
   "devDependencies": {
     "gulp": "*",
     "gulp-grunt": "*",
