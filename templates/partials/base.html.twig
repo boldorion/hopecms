@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="{{ grav.language.getActive ?: theme_config.default_lang }}">"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="{{ grav.language.getActive ?: theme_config.default_lang }}">> <![endif]-->
+<!--[if IE 9 ]><html class="no-js ie ie9" lang="{{ grav.language.getActive ?: theme_config.default_lang }}">> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="{{ grav.language.getActive ?: theme_config.default_lang }}"> <!--<![endif]-->
+<head>
+    {% block head %}
+        <meta charset="utf-8" />
+        <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
+        {% include 'partials/metadata.html.twig' %}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!---<link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png') }}" /> -->
+        <link rel="canonical" href="{{ page.url(true, true) }}" />
+        
+        <!--[if lte IE 8]><script src="{{ url('theme://js/html5shiv.js') }}"></script><![endif]-->
+    {% endblock head%}
+</head>
+<body>
+<header class="header">
+    <nav class="center" role="navigation">
+    {% include 'partials/header.html.twig' %}
+    </nav>
+</header>
+
+<div class="container">
+  <div class="row">
+	{% block body %}{% block content %}{% endblock %}
+  </div>
+</div>
+
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+                
+                    
+
+    </div>
+               {% endblock %}
+
+{% block footer %}
+<footer>
+    <div class="container">
+		<div class="row">
+                        <div class="one-third column center"><a href="#" class="pure-menu-link">Resources</a></div>
+                        <div class="one-third column center"><a href="#" class="pure-menu-link">WhatsApp Groups</a></div>
+                        <div class="one-third column center"><a href="#" class="pure-menu-link">Contact</a></div>
+        </div>
+	<div class="row center">Copyright 2020</div>
+    </div>
+	</footer>
+{% endblock %}
+        </div>
+    </div>
+</div>
+
+
+    {% block bottom %}
+        {{ assets.js('bottom') }}
+    {% endblock %}
+	
+		<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha256-2YQRJMXD7pIAPHiXr0s+vlRWA7GYJEK0ARns7k2sbHY=" crossorigin="anonymous" />
+		
+        {% block stylesheets %}
+            {% do assets.addCss('theme://css/fonts.css') %}
+            {% do assets.addCss('theme://css/style.css') %}
+        {% endblock %}
+        {{ assets.css() }}
+</body>
+</html>

@@ -1,0 +1,67 @@
+name: HopeCMS
+version: 0.1
+description: "A super light-weight theme for mobile devices."
+icon: bolt
+author:
+  name: Duncan Platt
+  email: duncan@boldorion.com
+  url: https://github.com/boldorion/hopecms
+homepage: https://boldorion.com
+keywords: 
+bugs: https://support.boldorion.com
+license: Copyright (c) 2020 BoldOrion
+
+form:
+  validation: loose
+  fields:
+    tagline:
+        type: text
+        label: Tagline
+        default: God's Word, Every Child.
+        validate:
+            type: text
+    footer:
+        type: toggle
+        label: Enable Footer
+        highlight: 0
+        default: 1
+        options:
+          0: Off
+          1: On
+        validate:
+          type: bool      
+
+    layout:
+        type: toggle
+        label: Layout
+        highlight: 0
+        default: 0
+        options:
+          0: Blog
+          1: Marketing
+          2: Email
+        validate:
+          type: bool
+          
+    style:
+        type: toggle
+        label: Styling
+        highlight: 0
+        default: 0
+        options:
+          0: Dark
+          1: Light
+        validate:
+          type: bool
+          
+    menu:
+        type: select
+        label: Menu style
+        default: 0
+        options:
+          0: None
+          1: Vertical
+          2: Tabbed
+          3: Horizontal
+        validate:
+          type: number
